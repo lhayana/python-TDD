@@ -3,9 +3,9 @@ import pytest
 from pytest import mark
 
 class TestClass:
-    def test_when_age_is_30_12_1997_must_return_25(self):
+    def test_when_age_is_30_01_1998_must_return_25(self):
         #given
-        entrada = '30/12/1997'
+        entrada = '30/01/1998'
         esperado = 25
 
         funcionario_teste = Funcionario('Fulano', entrada, 1111)
@@ -19,7 +19,7 @@ class TestClass:
     def test_when_sobrenome_is_Lhayana_Vieira_must_return_Vieira(self):
         entrada = 'Lhayana Vieira'
         esperado = 'Vieira'
-        funcionario_teste = Funcionario(entrada, '30/12/1997', 1111)
+        funcionario_teste = Funcionario(entrada, '30/01/1998', 1111)
         resultado = funcionario_teste.sobrenome()
         assert resultado == esperado
 
@@ -28,7 +28,7 @@ class TestClass:
         entrada_nome = 'Paulo Braganca'
         esperado = 90000
 
-        funcionario_test = Funcionario(entrada_nome, '30/12/1997', entrada_salario)
+        funcionario_test = Funcionario(entrada_nome, '30/01/1998', entrada_salario)
         funcionario_test.decrescimo_salario() #when
         resultado = funcionario_test.salario
 
@@ -39,7 +39,7 @@ class TestClass:
         entrada=1000 #given
         esperado = 100
 
-        funcionario_test = Funcionario('Teste', '30/12/1997', entrada)
+        funcionario_test = Funcionario('Teste', '30/01/1998', entrada)
         resultado = funcionario_test.calcular_bonus() #when
 
         assert resultado == esperado #then
@@ -48,13 +48,13 @@ class TestClass:
     def test_when_calcular_bonus_recebe_10000000_must_return_exception(self):
         with pytest.raises(Exception):
             entrada = 10000000
-            funcionario_test = Funcionario('Teste', '30/12/1997', entrada)
+            funcionario_test = Funcionario('Teste', '30/01/1998', entrada)
             resultado = funcionario_test.calcular_bonus()
             assert resultado
 
     def test_retorno_str(self):
-        nome, dn, salario = 'teste', '30/12/1997', 1000
-        esperado = 'Funcionario(teste, 30/12/1997, 1000)'
+        nome, dn, salario = 'teste', '30/01/1998', 1000
+        esperado = 'Funcionario(teste, 30/01/1998, 1000)'
         funcionario_test = Funcionario(nome, dn, salario)
         resultado = funcionario_test.__str__()
         assert resultado == esperado
